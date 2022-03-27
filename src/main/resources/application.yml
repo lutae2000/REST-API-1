@@ -1,0 +1,27 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework: info
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+  messages:
+    basename: messages
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  security:
+    user:
+      name: username
+      password: passw0rd
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

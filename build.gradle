@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.6.4'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.2'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.6.5'
+// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.4'
+// https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-hal-browser
+    implementation 'org.springframework.data:spring-data-rest-hal-browser:3.3.9.RELEASE'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.5'
+// https://mvnrepository.com/artifact/com.h2database/h2
+    runtimeOnly 'com.h2database:h2:1.4.197'
+
+
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
