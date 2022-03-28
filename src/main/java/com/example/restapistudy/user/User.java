@@ -7,14 +7,17 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -40,4 +43,19 @@ public class User {
 
     @ApiModelProperty(notes = "사용자 주민번호를 입력해 주세요")
     private String ssn;
+
+    @ApiModelProperty(notes = "사용자 IP")
+    @Nullable
+    private String ip;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    public User(int id, String name, Date joinDate, String password, String ssn){
+        this.id = id;
+        this.name = name;
+        this.joinDate = joinDate;
+        this.password = password;
+        this.ssn = ssn;
+    }
 }
