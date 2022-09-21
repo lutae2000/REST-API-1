@@ -20,8 +20,25 @@ spring:
       name: username
       password: passw0rd
 
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
 management:
+  health:
+    ping:
+      enabled: true
   endpoints:
+    metrics:
+      enabled: true
+      tags:
+        application: "REST-API"
+    export:
+      prometheus:
+      enabled: true
+    prometheus:
+      enabled: true
     web:
       exposure:
         include: "*"
